@@ -11,7 +11,57 @@ edition = "2021"
 authors = ["nerodono <nerodono0@gmail.com>"]
 repository = "https://github.com"
 
+[features]
+default = ["curseforge", "modrinth"]
+curseforge = ["dep:craft-curse"]
+modrinth = ["dep:craft-modrinth"]
+
 [workspace]
+members = [
+  # Where `craft` should search mods
+  "crates/craft-mod-source",
+
+  # Concrete implementations
+  "crates/craft-curse",
+  "crates/craft-modrinth",
+
+  # Dependency resolver for `craft`
+  "crates/craft-resolver",
+
+  # Filesystem hierarchy
+  "crates/craft-fh",
+]
+
+[workspace.dependencies]
+craft-mod-source.path = "craft-mod-source"
+tokio = { version = "1.36.0", features = [
+  "rt",
+  "rt-multi-thread",
+  "io-util",
+  "time",
+], default-features = false }
+sha2 = "0.10.8"
+
+eyre = "0.6.12"
+
+[dependencies.craft-curse]
+version = "0.1.0"
+path = "crates/craft-curse"
+optional = true
+
+[dependencies.craft-modrinth]
+version = "0.1.0"
+path = "crates/craft-modrinth"
+optional = true
 
 [dependencies]
 clap = { version = "4.5.1", features = ["derive"] }
+color-eyre = "0.6.2"
+eyre.workspace = true
+
+num_cpus = "^1.16.0"
+tokio.workspace = true
+tracing = { version = "0.1.40", features = ["async-await"] }
+tracing-subscriber = "0.3.18"
+owo-colors = "4.0.0"
+
