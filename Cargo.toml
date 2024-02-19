@@ -41,6 +41,7 @@ tokio = { version = "1.36.0", features = [
   "time",
 ], default-features = false }
 sha2 = "0.10.8"
+serde = "1.0.196"
 
 eyre = "0.6.12"
 
@@ -62,6 +63,6 @@ eyre.workspace = true
 num_cpus = "^1.16.0"
 tokio.workspace = true
 tracing = { version = "0.1.40", features = ["async-await"] }
-tracing-subscriber = "0.3.18"
+tracing-subscriber = { version = "0.3.18", features = ["ansi"] }
 owo-colors = "4.0.0"
 

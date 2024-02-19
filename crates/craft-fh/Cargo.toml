@@ -9,4 +9,5 @@ repository.workspace = true
 [dependencies]
 dirs = "5.0.1"
 
+serde.workspace = true
 sha2.workspace = true

@@ -15,8 +15,12 @@ pub enum Subcommands {
     #[clap(subcommand)]
     Config(config::ConfigSubcommand),
 
+    #[clap(subcommand)]
+    Instances(instances::InstancesSubcommand),
+
     /// Removes everything related to the `craft`
     Nuke,
 }
 
 pub mod config;
+pub mod instances;

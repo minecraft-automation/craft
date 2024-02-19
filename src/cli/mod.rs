@@ -1,4 +1,4 @@
-use std::{num::NonZeroUsize};
+use std::num::NonZeroUsize;
 
 use clap::Parser;
 

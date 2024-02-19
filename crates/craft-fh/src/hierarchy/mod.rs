@@ -5,3 +5,5 @@ pub struct FsHierarchy<P = PathBuf> {
     pub config_store: P,
     pub mods_store: P,
 }
+
+pub mod entries;
